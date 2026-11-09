@@ -1,0 +1,24 @@
+{
+  "name": "iguana-surf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de Iguana Surf: restaurante y academia de surf en Playa El Tunco.",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "npm --workspace backend run dev",
+    "dev:frontend": "npm --workspace frontend run dev",
+    "build": "npm --workspace frontend run build",
+    "start": "npm run build && npm --workspace backend run start",
+    "lint": "npm --workspace frontend run lint"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
