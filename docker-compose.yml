@@ -8,9 +8,11 @@ services:
     ports:
       - "4000:4000" # Puerto de tu API
       - "9229:9229" # Puerto para el depurador (Debugger)
+    environment:
+      - PORT=4000 # NUEVO: Obliga a tu código Express a usar este puerto
     volumes:
       - ./backend:/app
-      - /app/node_modules # Aísla las dependencias de Linux de las de Windows
+      - /app/node_modules
 
   frontend:
     build: 
@@ -22,4 +24,4 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - CHOKIDAR_USEPOLLING=true # Obliga a React a detectar los cambios guardados
+      - CHOKIDAR_USEPOLLING=true
