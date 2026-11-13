@@ -1,0 +1,9 @@
+FROM node:24-alpine
+WORKDIR /app
+
+# Copiar dependencias e instalar
+COPY package*.json ./
+RUN npm install
+
+# Iniciar en modo desarrollo
+CMD ["npm", "run", "dev"]

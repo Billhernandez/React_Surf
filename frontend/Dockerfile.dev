@@ -1,0 +1,8 @@
+FROM node:24-alpine
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+# Usa "npm start" si usaste Create React App, o "npm run dev" si usas Vite
+CMD ["npm", "start"]
